@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://loocguwi14h0"]
+
+[ext_resource type="Script" uid="uid://b5j83guq176ho" path="res://ConcentrationBar/concentration_bar.gd" id="1_ggx1m"]
+
+[node name="ConcentrationBar" type="ProgressBar"]
+offset_right = 134.0
+offset_bottom = 27.0
+script = ExtResource("1_ggx1m")
