@@ -1,14 +1,13 @@
 extends CharacterBody2D
 @onready var tile_map = $"../WalkableLayer"
 @onready var tile_map_unwalkable = $"../UnwalkableLayer"
-@onready var concentration_bar = $"../ConcentrationBar"
+@onready var concentration_bar = $ConcentrationBar
 
 var astar_grid = AStarGrid2D
 var tile_size: Vector2 = Vector2(16, 16)
 var current_id_path: Array[Vector2i]
-var character_speed: float = 1.5
+var character_speed: float = 2
 var is_moving: bool 
-
 
 func _ready() -> void:
 	# Init A*

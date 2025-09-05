@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=4 uid="uid://52c41ev2sg2v"]
 
-[ext_resource type="Script" uid="uid://dx3rpgemopsf6" path="res://BattleRoom/battle_room_test.gd" id="1_aitks"]
-[ext_resource type="Texture2D" uid="uid://pkbkf3kj865i" path="res://BattleRoom/Dungeon_Tileset.png" id="2_do4ib"]
-[ext_resource type="PackedScene" uid="uid://ceuwjs2leguxj" path="res://Character/player.tscn" id="3_aitks"]
-[ext_resource type="Script" uid="uid://viuo0qehahee" path="res://Character/tile_movement.gd" id="4_do4ib"]
-[ext_resource type="PackedScene" uid="uid://loocguwi14h0" path="res://ConcentrationBar/concentration_bar.tscn" id="5_aitks"]
+[ext_resource type="Script" uid="uid://dx3rpgemopsf6" path="res://Scripts/battle_room_test.gd" id="1_aitks"]
+[ext_resource type="Texture2D" uid="uid://pkbkf3kj865i" path="res://Rooms/BattleRoom/Dungeon_Tileset.png" id="2_do4ib"]
+[ext_resource type="PackedScene" uid="uid://ceuwjs2leguxj" path="res://Assets/Character/player.tscn" id="3_aitks"]
+[ext_resource type="Script" uid="uid://viuo0qehahee" path="res://Scripts/tile_movement.gd" id="4_do4ib"]
+[ext_resource type="PackedScene" uid="uid://loocguwi14h0" path="res://Assets/ConcentrationBar/concentration_bar.tscn" id="5_aitks"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e40mm"]
 texture = ExtResource("2_do4ib")
@@ -231,15 +231,15 @@ tile_set = SubResource("TileSet_xrnj6")
 tile_map_data = PackedByteArray("AAACAAAAAAADAAgAAAD//wIAAAADAAgAAAAAAP3/AAADAAgAAAD8//7/AAADAAgAAAD9//v/AAADAAgAAAAEAPz/AAADAAgAAAD+/wAAAAADAAgAAAADAAEAAAADAAgAAAD9/wIAAAADAAgAAAD6//z/AAADAAgAAAD6/wAAAAADAAgAAAAEAAIAAAADAAgAAAADAPr/AAADAAgAAAD7/wQAAAADAAgAAAD7//r/AAADAAgAAAA=")
 tile_set = SubResource("TileSet_5lm8f")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("3_aitks")]
+[node name="Player" parent="." instance=ExtResource("3_aitks")]
 position = Vector2(24, -40)
 script = ExtResource("4_do4ib")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-24, 40)
 
-[node name="ConcentrationBar" parent="." instance=ExtResource("5_aitks")]
-offset_left = 141.0
-offset_top = -156.0
-offset_right = 237.0
-offset_bottom = -129.0
+[node name="ConcentrationBar" parent="Player" instance=ExtResource("5_aitks")]
+offset_left = 117.0
+offset_top = -116.0
+offset_right = 213.0
+offset_bottom = -89.0
