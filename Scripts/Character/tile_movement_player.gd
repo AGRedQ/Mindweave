@@ -2,6 +2,7 @@ extends CharacterBody2D
 @onready var tile_map = $"../WalkableLayer"
 @onready var tile_map_unwalkable = $"../UnwalkableLayer"
 @onready var concentration_bar = $ConcentrationBar
+@onready var turn_manager = $"../TurnManager"
 
 var astar_grid = AStarGrid2D
 var tile_size: Vector2 = Vector2(16, 16)
@@ -9,7 +10,7 @@ var current_id_path: Array[Vector2i]
 var character_speed: float = 2
 var is_moving: bool 
 
-func _ready() -> void:
+func init_astar():
 	# Init A*
 	astar_grid = AStarGrid2D.new()
 	# Configurations
@@ -17,23 +18,28 @@ func _ready() -> void:
 	astar_grid.cell_size = tile_size
 	astar_grid.diagonal_mode = astar_grid.DIAGONAL_MODE_NEVER
 	astar_grid.update()
-	
+
+func astar_layer_create_solid(tile_map_layer):
 	# Loop over unwalkable layer, if cell exists, tell A* to set its graph to solid
-	for x in tile_map_unwalkable.get_used_rect().size.x:
-		for y in tile_map_unwalkable.get_used_rect().size.y:
+	for x in tile_map_layer.get_used_rect().size.x:
+		for y in tile_map_layer.get_used_rect().size.y:
 			var cur_tile_pos = Vector2i(
-				x + tile_map_unwalkable.get_used_rect().position.x,
-				y + tile_map_unwalkable.get_used_rect().position.y
-			)
-					
-			if tile_map_unwalkable.get_cell_source_id(cur_tile_pos) != -1:
+				x + tile_map_layer.get_used_rect().position.x,
+				y + tile_map_layer.get_used_rect().position.y)
+				
+			if tile_map_layer.get_cell_source_id(cur_tile_pos) != -1:
 				astar_grid.set_point_solid(cur_tile_pos, true)
 				
-	
+func _ready() -> void:
+	init_astar()
+	astar_layer_create_solid(tile_map_unwalkable)
 	
 	
 func _input(event):
 	if event.is_action_pressed("move") == false:
+		return
+		
+	if turn_manager.check_current_turn() != "player":
 		return
 	# id_path prints out an array of the path
 	

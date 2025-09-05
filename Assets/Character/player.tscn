@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceuwjs2leguxj"]
+[gd_scene load_steps=4 format=3 uid="uid://ceuwjs2leguxj"]
 
 [ext_resource type="Texture2D" uid="uid://c5sbx3g8b8wj" path="res://Assets/Character/player_placeholder.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://djsh12vx46ude" path="res://Scripts/Character/stats.gd" id="2_36a3x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 
@@ -11,3 +12,6 @@ texture = ExtResource("1_4flbx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="Stats" type="Node2D" parent="."]
+script = ExtResource("2_36a3x")
