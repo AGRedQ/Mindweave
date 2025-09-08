@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=4 uid="uid://52c41ev2sg2v"]
 
-[ext_resource type="Script" uid="uid://dx3rpgemopsf6" path="res://Scripts/Rooms/battle_room_test.gd" id="1_aitks"]
+[ext_resource type="Script" uid="uid://bumd5cfs2r54l" path="res://Scripts/controller.gd" id="1_v1i6b"]
 [ext_resource type="Texture2D" uid="uid://pkbkf3kj865i" path="res://Rooms/BattleRoom/Dungeon_Tileset.png" id="2_do4ib"]
 [ext_resource type="PackedScene" uid="uid://ceuwjs2leguxj" path="res://Assets/Character/player.tscn" id="3_aitks"]
 [ext_resource type="Script" uid="uid://viuo0qehahee" path="res://Scripts/Character/tile_movement_player.gd" id="4_do4ib"]
@@ -220,7 +220,7 @@ texture = ExtResource("2_do4ib")
 sources/0 = SubResource("TileSetAtlasSource_djhi2")
 
 [node name="BattleRoom" type="Node2D"]
-script = ExtResource("1_aitks")
+script = ExtResource("1_v1i6b")
 metadata/_edit_vertical_guides_ = [-84.0]
 metadata/_edit_horizontal_guides_ = [125.0]
 
