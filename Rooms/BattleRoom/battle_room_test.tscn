@@ -1,11 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://52c41ev2sg2v"]
+[gd_scene load_steps=8 format=4 uid="uid://52c41ev2sg2v"]
 
 [ext_resource type="Script" uid="uid://bumd5cfs2r54l" path="res://Scripts/controller.gd" id="1_v1i6b"]
 [ext_resource type="Texture2D" uid="uid://pkbkf3kj865i" path="res://Rooms/BattleRoom/Dungeon_Tileset.png" id="2_do4ib"]
 [ext_resource type="PackedScene" uid="uid://ceuwjs2leguxj" path="res://Assets/Character/player.tscn" id="3_aitks"]
-[ext_resource type="Script" uid="uid://viuo0qehahee" path="res://Scripts/Character/tile_movement_player.gd" id="4_do4ib"]
-[ext_resource type="PackedScene" uid="uid://loocguwi14h0" path="res://Assets/ConcentrationBar/concentration_bar.tscn" id="5_aitks"]
-[ext_resource type="PackedScene" uid="uid://cdasqp868aabf" path="res://Scripts/Rooms/turn_manager.tscn" id="6_v1i6b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e40mm"]
 texture = ExtResource("2_do4ib")
@@ -232,21 +229,7 @@ tile_set = SubResource("TileSet_xrnj6")
 tile_map_data = PackedByteArray("AAACAAAAAAADAAgAAAD//wIAAAADAAgAAAAAAP3/AAADAAgAAAD8//7/AAADAAgAAAD9//v/AAADAAgAAAAEAPz/AAADAAgAAAD+/wAAAAADAAgAAAADAAEAAAADAAgAAAD9/wIAAAADAAgAAAD6//z/AAADAAgAAAD6/wAAAAADAAgAAAAEAAIAAAADAAgAAAADAPr/AAADAAgAAAD7/wQAAAADAAgAAAD7//r/AAADAAgAAAA=")
 tile_set = SubResource("TileSet_5lm8f")
 
-[node name="TurnManager" parent="." instance=ExtResource("6_v1i6b")]
+[node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Actors" type="Node2D" parent="TurnManager"]
-
-[node name="Allies" type="Node2D" parent="TurnManager/Actors"]
-
-[node name="Player" parent="TurnManager/Actors/Allies" instance=ExtResource("3_aitks")]
-position = Vector2(24, -40)
-script = ExtResource("4_do4ib")
-
-[node name="Camera2D" type="Camera2D" parent="TurnManager/Actors/Allies/Player"]
-position = Vector2(-24, 40)
-
-[node name="ConcentrationBar" parent="TurnManager/Actors/Allies/Player" instance=ExtResource("5_aitks")]
-offset_left = 117.0
-offset_top = -116.0
-offset_right = 213.0
-offset_bottom = -89.0
+[node name="Player" parent="." instance=ExtResource("3_aitks")]
+position = Vector2(8, 8)
