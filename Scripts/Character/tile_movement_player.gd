@@ -1,8 +1,8 @@
 extends CharacterBody2D
-@onready var tile_map = $"../WalkableLayer"
-@onready var tile_map_unwalkable = $"../UnwalkableLayer"
+@onready var tile_map = $"../../../../WalkableLayer"
+@onready var tile_map_unwalkable = $"../../../../UnwalkableLayer"
 @onready var concentration_bar = $ConcentrationBar
-@onready var turn_manager = $"../TurnManager"
+@onready var turn_manager = $"../../.."
 
 var astar_grid = AStarGrid2D
 var tile_size: Vector2 = Vector2(16, 16)

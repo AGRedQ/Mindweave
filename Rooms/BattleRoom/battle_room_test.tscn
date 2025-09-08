@@ -232,17 +232,21 @@ tile_set = SubResource("TileSet_xrnj6")
 tile_map_data = PackedByteArray("AAACAAAAAAADAAgAAAD//wIAAAADAAgAAAAAAP3/AAADAAgAAAD8//7/AAADAAgAAAD9//v/AAADAAgAAAAEAPz/AAADAAgAAAD+/wAAAAADAAgAAAADAAEAAAADAAgAAAD9/wIAAAADAAgAAAD6//z/AAADAAgAAAD6/wAAAAADAAgAAAAEAAIAAAADAAgAAAADAPr/AAADAAgAAAD7/wQAAAADAAgAAAD7//r/AAADAAgAAAA=")
 tile_set = SubResource("TileSet_5lm8f")
 
-[node name="Player" parent="." instance=ExtResource("3_aitks")]
+[node name="TurnManager" parent="." instance=ExtResource("6_v1i6b")]
+
+[node name="Actors" type="Node2D" parent="TurnManager"]
+
+[node name="Allies" type="Node2D" parent="TurnManager/Actors"]
+
+[node name="Player" parent="TurnManager/Actors/Allies" instance=ExtResource("3_aitks")]
 position = Vector2(24, -40)
 script = ExtResource("4_do4ib")
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="TurnManager/Actors/Allies/Player"]
 position = Vector2(-24, 40)
 
-[node name="ConcentrationBar" parent="Player" instance=ExtResource("5_aitks")]
+[node name="ConcentrationBar" parent="TurnManager/Actors/Allies/Player" instance=ExtResource("5_aitks")]
 offset_left = 117.0
 offset_top = -116.0
 offset_right = 213.0
 offset_bottom = -89.0
-
-[node name="TurnManager" parent="." instance=ExtResource("6_v1i6b")]
