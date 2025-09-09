@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://52c41ev2sg2v"]
 
 [ext_resource type="Script" uid="uid://bumd5cfs2r54l" path="res://Scripts/controller.gd" id="1_v1i6b"]
-[ext_resource type="Texture2D" uid="uid://pkbkf3kj865i" path="res://Rooms/BattleRoom/Dungeon_Tileset.png" id="2_do4ib"]
+[ext_resource type="Texture2D" uid="uid://pkbkf3kj865i" path="res://Maps/Test_Room/Dungeon_Tileset.png" id="2_do4ib"]
 [ext_resource type="PackedScene" uid="uid://ceuwjs2leguxj" path="res://Assets/Character/player.tscn" id="3_aitks"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e40mm"]
@@ -232,4 +232,4 @@ tile_set = SubResource("TileSet_5lm8f")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("3_aitks")]
-position = Vector2(8, 8)
+position = Vector2(120, 8)

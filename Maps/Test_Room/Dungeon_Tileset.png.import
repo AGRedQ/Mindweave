@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://pkbkf3kj865i"
-path="res://.godot/imported/Dungeon_Tileset.png-b15f32bb50d975d0aa111b4082113d16.ctex"
+path="res://.godot/imported/Dungeon_Tileset.png-7cb8f103f12733a9e1a01b1fe2df9314.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/BattleRoom/Dungeon_Tileset.png"
-dest_files=["res://.godot/imported/Dungeon_Tileset.png-b15f32bb50d975d0aa111b4082113d16.ctex"]
+source_file="res://Maps/Test_Room/Dungeon_Tileset.png"
+dest_files=["res://.godot/imported/Dungeon_Tileset.png-7cb8f103f12733a9e1a01b1fe2df9314.ctex"]
 
 [params]
 
