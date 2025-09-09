@@ -14,4 +14,3 @@ func decrease(amount):
 		concentration = 0
 	value = concentration 
 	
-	

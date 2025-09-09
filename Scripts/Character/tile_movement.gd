@@ -1,8 +1,14 @@
-extends CharacterBody2D
+extends Node2D
+"""
+Level: Initializing AStar2DGrid for navigation and pathfinding logic
+
+"""
+
+
+
 @onready var tile_map = $"../../../../WalkableLayer"
 @onready var tile_map_unwalkable = $"../../../../UnwalkableLayer"
 @onready var concentration_bar = $ConcentrationBar
-@onready var turn_manager = $"../../.."
 
 var astar_grid = AStarGrid2D
 var tile_size: Vector2 = Vector2(16, 16)
@@ -39,8 +45,6 @@ func _input(event):
 	if event.is_action_pressed("move") == false:
 		return
 		
-	if turn_manager.check_current_turn() != "player":
-		return
 	# id_path prints out an array of the path
 	
 	var id_path = astar_grid.get_id_path(
