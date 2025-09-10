@@ -1,13 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceuwjs2leguxj"]
+[gd_scene load_steps=2 format=3 uid="uid://ceuwjs2leguxj"]
 
-[ext_resource type="Texture2D" uid="uid://c5sbx3g8b8wj" path="res://Assets/Character/player_placeholder.png" id="1_4flbx"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tswve"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_4flbx")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_onrkg")
+shape = SubResource("RectangleShape2D_tswve")
