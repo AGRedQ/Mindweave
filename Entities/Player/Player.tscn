@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://bg2u3gjyeva80"]
+
+[ext_resource type="Script" uid="uid://c5jcoc6gqmuox" path="res://Maps/Test_Room/player.gd" id="1_h6w86"]
+[ext_resource type="Texture2D" uid="uid://c5sbx3g8b8wj" path="res://Entities/Player/player_placeholder.png" id="2_tliid"]
+[ext_resource type="Script" uid="uid://ca8hl2xrnwwjx" path="res://Maps/Test_Room/player_movement.gd" id="3_rn85e"]
+[ext_resource type="PackedScene" uid="uid://83knhm07dep" path="res://Magic Spells/Fireball/fireball.tscn" id="4_1des2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvr3l"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_h6w86")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cvr3l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.374191, 0.675285)
+texture = ExtResource("2_tliid")
+
+[node name="PlayerMovement" type="Node2D" parent="."]
+script = ExtResource("3_rn85e")
+
+[node name="Spellbook" type="Node2D" parent="."]
+
+[node name="Fireball" parent="Spellbook" instance=ExtResource("4_1des2")]

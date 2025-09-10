@@ -1,12 +1,11 @@
-[gd_scene load_steps=14 format=4 uid="uid://52c41ev2sg2v"]
+[gd_scene load_steps=11 format=4 uid="uid://52c41ev2sg2v"]
 
 [ext_resource type="Script" uid="uid://ctb74dafkb18y" path="res://Maps/Test_Room/battle_room_init.gd" id="1_sq0ra"]
 [ext_resource type="Texture2D" uid="uid://pkbkf3kj865i" path="res://Maps/Test_Room/Dungeon_Tileset.png" id="2_do4ib"]
 [ext_resource type="Script" uid="uid://v0il5f24132j" path="res://Maps/Test_Room/units_turn_order.gd" id="2_ujtop"]
 [ext_resource type="Script" uid="uid://deuriqe3wkww1" path="res://Maps/Test_Room/astargrid2d.gd" id="3_sq0ra"]
-[ext_resource type="Texture2D" uid="uid://c5sbx3g8b8wj" path="res://Assets/Character/player_placeholder.png" id="5_8px2p"]
-[ext_resource type="Script" uid="uid://ca8hl2xrnwwjx" path="res://Maps/Test_Room/player_movement.gd" id="6_qp0pu"]
-[ext_resource type="Script" uid="uid://by52x756ws50u" path="res://Maps/Test_Room/ai_movement.gd" id="7_qp0pu"]
+[ext_resource type="PackedScene" uid="uid://bg2u3gjyeva80" path="res://Entities/Player/Player.tscn" id="5_qp0pu"]
+[ext_resource type="PackedScene" uid="uid://cuces4d4oq1wd" path="res://Entities/Enemies/Skeleton/Skeleton.tscn" id="6_8px2p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e40mm"]
 texture = ExtResource("2_do4ib")
@@ -220,10 +219,6 @@ texture = ExtResource("2_do4ib")
 [sub_resource type="TileSet" id="TileSet_5lm8f"]
 sources/0 = SubResource("TileSetAtlasSource_djhi2")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bwegh"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4n4sq"]
-
 [node name="BattleRoom" type="Node2D"]
 script = ExtResource("1_sq0ra")
 metadata/_edit_vertical_guides_ = [-84.0]
@@ -247,28 +242,9 @@ script = ExtResource("2_ujtop")
 
 [node name="Allies" type="Node2D" parent="Units"]
 
-[node name="Player" type="CharacterBody2D" parent="Units/Allies"]
-position = Vector2(119.626, -8.67529)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Units/Allies/Player"]
-shape = SubResource("RectangleShape2D_bwegh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Units/Allies/Player"]
-position = Vector2(0.374191, 0.675285)
-texture = ExtResource("5_8px2p")
-
-[node name="PlayerMovement" type="Node2D" parent="Units/Allies/Player"]
-script = ExtResource("6_qp0pu")
+[node name="Player" parent="Units/Allies" instance=ExtResource("5_qp0pu")]
+position = Vector2(119, 7)
 
 [node name="Enemies" type="Node2D" parent="Units"]
 
-[node name="Skeleton" type="CharacterBody2D" parent="Units/Enemies"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Units/Enemies/Skeleton"]
-texture = ExtResource("5_8px2p")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Units/Enemies/Skeleton"]
-shape = SubResource("RectangleShape2D_4n4sq")
-
-[node name="AIMovement" type="Node2D" parent="Units/Enemies/Skeleton"]
-script = ExtResource("7_qp0pu")
+[node name="Skeleton" parent="Units/Enemies" instance=ExtResource("6_8px2p")]

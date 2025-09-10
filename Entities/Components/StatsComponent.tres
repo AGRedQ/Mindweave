@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=2 format=3 uid="uid://b2sfwaksk8t5b"]
+
+[ext_resource type="Script" uid="uid://dugfokl6qkaqo" path="res://Entities/Components/stats.gd" id="1_vkrya"]
+
+[resource]
+script = ExtResource("1_vkrya")
+max_hp = 100
+current_hp = null
+speed = 10
+metadata/_custom_type_script = "uid://dugfokl6qkaqo"
