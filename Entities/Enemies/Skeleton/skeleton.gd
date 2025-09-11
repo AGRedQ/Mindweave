@@ -14,8 +14,7 @@ func init_stats():
     stats.speed = 8
     stats.intelligence = 5
 
-func _ready():
-    init_stats()
+func print_stats():
     print("Skeleton Stats:")
     print("HP: %d/%d" % [stats.current_hp, stats.max_hp])
     print("Mana: %d/%d" % [stats.current_mana, stats.max_mana])
@@ -23,4 +22,10 @@ func _ready():
     print("Dexterity: %d" % stats.dexterity)
     print("Speed: %d" % stats.speed)
     print("Intelligence: %d" % stats.intelligence)
+
+
+func _ready():
+    init_stats()
+    # print_stats()
+
     

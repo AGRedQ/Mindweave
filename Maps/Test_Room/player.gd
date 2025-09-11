@@ -1,6 +1,14 @@
 extends CharacterBody2D
 
+"""
+Note on variable Level: Spells are having trouble accessing Level node on their own.
+- So passing Level node reference from Player to Spell when casting.
+
+"""
+
+
 @export var stats: Stats
+@onready var level_grid = $"../../../Level"
 
 
 func init_stats():
@@ -14,11 +22,7 @@ func init_stats():
 	stats.speed = 10
 	stats.intelligence = 10
 
-
-
-func _ready():
-	init_stats()
-	
+func print_stats():
 	print("Player Stats:")
 	print("HP: %d/%d" % [stats.current_hp, stats.max_hp])
 	print("Mana: %d/%d" % [stats.current_mana, stats.max_mana])
@@ -26,3 +30,11 @@ func _ready():
 	print("Dexterity: %d" % stats.dexterity)
 	print("Speed: %d" % stats.speed)
 	print("Intelligence: %d" % stats.intelligence)
+
+
+
+
+func _ready():
+	init_stats()
+
+	# print_stats()

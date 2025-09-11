@@ -7,7 +7,6 @@ Note: sending raw position to Level to ask for id_path
 
 """
 
-# Let's do some thing simple, click a position, then ask Level for id_path, then print the id_path
 
 @onready var player = $'..'
 @onready var level_grid = $'../../../../Level'
