@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuces4d4oq1wd"]
+
+[ext_resource type="Texture2D" uid="uid://c5sbx3g8b8wj" path="res://Entities/Player/player_placeholder.png" id="1_g0bof"]
+[ext_resource type="Script" uid="uid://7hs1hp5mkeej" path="res://Entities/Enemies/Skeleton/skeleton.gd" id="1_vm6wo"]
+[ext_resource type="Script" uid="uid://by52x756ws50u" path="res://Maps/Test_Room/ai_movement.gd" id="2_vm6wo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbont"]
+
+[node name="Skeleton" type="CharacterBody2D"]
+script = ExtResource("1_vm6wo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_g0bof")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xbont")
+
+[node name="AIMovement" type="Node2D" parent="."]
+script = ExtResource("2_vm6wo")

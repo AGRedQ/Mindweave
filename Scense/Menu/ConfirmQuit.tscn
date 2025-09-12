@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://b02ijsbprwft6"]
+
+[ext_resource type="Script" uid="uid://gwyjmj3wlb30" path="res://Scenne/Menu/quit_confime.gd" id="1_unbff"]
+[ext_resource type="Texture2D" uid="uid://bibk5t0klp1va" path="res://Assets/Menu/929514c2-6539-421b-84a0-110f977f5db3.png" id="2_blq2u"]
+[ext_resource type="Texture2D" uid="uid://begmx168q5aum" path="res://Assets/Menu/Quiitgame.png" id="3_e6lex"]
+[ext_resource type="Texture2D" uid="uid://debc3bd1evyhl" path="res://Assets/Menu/Yes.png" id="4_4knyf"]
+[ext_resource type="Texture2D" uid="uid://ciim34ur5rsc7" path="res://Assets/Menu/No.png" id="5_tvsai"]
+
+[node name="QuitConfime" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_unbff")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_blq2u")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = -97.0
+offset_right = 465.0
+offset_bottom = 282.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_e6lex")
+
+[node name="Yes" type="Button" parent="."]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 142.0
+offset_right = 400.0
+offset_bottom = 236.0
+scale = Vector2(0.3, 0.3)
+icon = ExtResource("4_4knyf")
+flat = true
+
+[node name="No" type="Button" parent="."]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 142.0
+offset_right = 495.0
+offset_bottom = 238.0
+scale = Vector2(0.3, 0.3)
+icon = ExtResource("5_tvsai")
+flat = true
+
+[connection signal="pressed" from="Yes" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="No" to="." method="_on_button_2_pressed"]
