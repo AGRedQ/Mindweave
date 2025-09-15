@@ -1,10 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://83knhm07dep"]
+[gd_scene load_steps=5 format=3 uid="uid://83knhm07dep"]
 
 [ext_resource type="Script" uid="uid://bpr2c27q2j2m1" path="res://Magic Spells/Fireball/fireball.gd" id="1_gpih7"]
 [ext_resource type="Texture2D" uid="uid://c56a1wb46xiem" path="res://Magic Spells/Fireball/fireball_16x16.png" id="2_4eb4j"]
+[ext_resource type="Texture2D" uid="uid://yvka4g1wnnj6" path="res://Magic Spells/AoE/aoe_sprite.png" id="3_4eb4j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4eb4j"]
+size = Vector2(48, 48)
 
 [node name="Fireball" type="Node2D"]
 script = ExtResource("1_gpih7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_4eb4j")
+
+[node name="AreaOfEffect" type="Area2D" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+
+[node name="Sprite2D" type="Sprite2D" parent="AreaOfEffect"]
+texture = ExtResource("3_4eb4j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaOfEffect"]
+shape = SubResource("RectangleShape2D_4eb4j")

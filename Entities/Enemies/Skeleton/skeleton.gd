@@ -28,4 +28,12 @@ func _ready():
     init_stats()
     # print_stats()
 
+func take_damage(amount: int):
+    stats.current_hp -= amount
+    if stats.current_hp <= 0:
+        die()
+
+func die():
+    queue_free()
+
     
