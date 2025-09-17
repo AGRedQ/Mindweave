@@ -9,6 +9,8 @@ Note on variable Level: Spells are having trouble accessing Level node on their 
 
 @export var stats: Stats
 @onready var level_grid = $"../../../Level"
+var status_moved_for_turn: bool = false
+var status_acted_for_turn: bool = false
 
 
 func init_stats():
@@ -30,6 +32,14 @@ func print_stats():
 	print("Dexterity: %d" % stats.dexterity)
 	print("Speed: %d" % stats.speed)
 	print("Intelligence: %d" % stats.intelligence)
+
+
+func change_status(status_name: String, toggle: bool):
+	if status_name == "move":
+		status_moved_for_turn = toggle
+	elif status_name == "act":
+		status_acted_for_turn = toggle
+	else: return "Invalid status name"
 
 
 

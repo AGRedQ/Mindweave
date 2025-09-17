@@ -10,6 +10,7 @@ Note2: Random movement within a range when "move" is pressed
 
 @onready var ai_character = $'..'
 @onready var level_grid = $'../../../../Level'
+@onready var turns_manager = ai_character.get_parent().get_parent()
 var is_moving: bool = false
 var target_position: Vector2
 var id_path: Array[Vector2i]
@@ -20,9 +21,16 @@ func _ready():
 	rng.randomize()
 
 func _input(event):
-	if event.is_action_pressed("move") == false and is_moving == false:
+	
+	if event.is_action_pressed("move"):
 		return
 	
+	if is_moving:
+		return
+
+	if turns_manager.get_current_turn_unit() != ai_character:
+		return
+
 	if id_path.is_empty() == false:
 		return
 	

@@ -5,28 +5,47 @@ Moving Component for Player Character
 
 Note: sending raw position to Level to ask for id_path
 
+Note: @onready variables are fragile, fix later
 """
 
 
 @onready var player = $'..'
 @onready var level_grid = $'../../../../Level'
+@onready var turns_manager = player.get_parent().get_parent() 
 var is_moving: bool = false
 var target_position: Vector2
 var id_path: Array[Vector2i]
 
 
+func print_debug_path():
+	print("-- From Player Movement --")
+	print("Player: ", player.name)
+	print("Level Grid: ", level_grid.name)
+	print("Turns Manager: ", turns_manager.name)
+
+
+
+
+func _ready():
+	# print_debug_path()
+	pass
+
 
 func _input(event):
-	if event.is_action_pressed("move") == false and is_moving == false:
-		return
+	if event.is_action_pressed("move"):
 	
-	if id_path.is_empty() == false:
-		return
+		if is_moving:
+			return
+		
+		if turns_manager.get_current_turn_unit() != player:
+			return
 
-	target_position = get_global_mouse_position()
-	id_path = level_grid.get_path_from_astar(player.global_position, target_position)
+		if id_path.is_empty() == false:
+			return
 
-	print("id_path: ", id_path)
+		target_position = get_global_mouse_position()
+		id_path = level_grid.get_path_from_astar(player.global_position, target_position)
+	else: return
 
 func _physics_process(_delta: float) -> void:
 	if id_path.is_empty() == false: 

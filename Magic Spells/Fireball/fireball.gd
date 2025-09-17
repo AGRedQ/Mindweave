@@ -30,6 +30,12 @@ func debug_print_path(): # Check for if paths are connected
 	print("AOE: ", aoe.name)
 	print("AOE Sprite: ", aoe_sprite.name)
 
+func toggle_sprite(toggle: bool):
+	if toggle:
+		$Sprite2D.visible = true
+	else:
+		$Sprite2D.visible = false
+
 
 func toggle_aoe(toggle: bool):
 	if toggle:
@@ -81,8 +87,10 @@ func init_skill():
 	skill.damage = 30
 
 func _ready():
+
 	init_skill()
 	# debug_print_path()
+	toggle_sprite(false)
 	toggle_aoe(false)
 
 func _physics_process(_delta: float) -> void:

@@ -33,6 +33,9 @@ func debug_print_units():
 	for enemy in enemies:
 		print("- ", enemy.name)
 
+	print("Turn Order:", turn_order)
+	var initiative_team = get_initiative_team()
+	print("Initiative Team: ", initiative_team)
 
 func calc_average_speed(units: Array) -> float:
 	if units.size() == 0:
@@ -43,6 +46,11 @@ func calc_average_speed(units: Array) -> float:
 	print("Total Speed: ", total_speed)
 	return total_speed / units.size()
 
+
+func get_current_turn_unit() -> Node:
+	if turn_order.size() > 0:
+		return turn_order[0]
+	return null
 
 
 func get_initiative_team() -> Array:
@@ -59,9 +67,11 @@ func get_initiative_team() -> Array:
 
 	if allies_speed >= enemies_speed:
 		turn_order = allies.duplicate()
+		turn_order = turn_order + enemies.duplicate()
 		return allies
 	else:
-		turn_order = enemies.duplicate()
+		turn_order = enemies.duplicate() 
+		turn_order = turn_order + allies.duplicate()
 		return enemies
 
 
@@ -70,9 +80,6 @@ func get_initiative_team() -> Array:
 func _ready():
 	get_units()
 	debug_print_units()
-	var initiative_team = get_initiative_team()
-	print("Initiative Team: ", initiative_team)
 	# Create turn order queue based on speed stats of that team
-
 	pass
 
