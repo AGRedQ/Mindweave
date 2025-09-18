@@ -9,6 +9,7 @@ Note on variable Level: Spells are having trouble accessing Level node on their 
 
 @export var stats: Stats
 @onready var level_grid = $"../../../Level"
+
 var status_moved_for_turn: bool = false
 var status_acted_for_turn: bool = false
 
@@ -42,6 +43,14 @@ func change_status(status_name: String, toggle: bool):
 	else: return "Invalid status name"
 
 
+
+func take_damage(amount: int):
+	stats.current_hp -= amount
+	if stats.current_hp <= 0:
+		die()
+
+func die():
+	print("Player has died. No animation yet.")
 
 
 func _ready():

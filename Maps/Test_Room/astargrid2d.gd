@@ -36,13 +36,19 @@ func astar_layer_create_solid(tile_map_layer):
 			if tile_map_layer.get_cell_source_id(cur_tile_pos) != -1:
 				astar_grid.set_point_solid(cur_tile_pos, true)
 				
-		
+
+
+
 func get_path_from_astar(current_location, target_location) -> Array[Vector2i]:
 	var id_path: Array[Vector2i] = []
 	
 	# Convert to grid coordinates
 	current_location = tile_map.local_to_map(current_location)
 	target_location = tile_map.local_to_map(target_location)
+
+	# Check if the location is in bound
+	if astar_grid.is_in_bounds(target_location.x, target_location.y) == false:
+		return id_path
 
 	# Get path
 	id_path = astar_grid.get_id_path(current_location, target_location).slice(1)

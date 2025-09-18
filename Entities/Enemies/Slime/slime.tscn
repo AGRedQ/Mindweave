@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://eutrcxfc0iy2"]
+
+[ext_resource type="Script" uid="uid://dluh0fbmjymdl" path="res://Entities/Enemies/Slime/slime.gd" id="1_0lovs"]
+[ext_resource type="Script" uid="uid://by52x756ws50u" path="res://Maps/Test_Room/ai_movement.gd" id="2_ap3hc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtx5w"]
+
+[node name="Slime" type="CharacterBody2D"]
+script = ExtResource("1_0lovs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rtx5w")
+
+[node name="AIMovement" type="Node2D" parent="."]
+script = ExtResource("2_ap3hc")

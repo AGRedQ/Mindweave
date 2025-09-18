@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://52c41ev2sg2v"]
+[gd_scene load_steps=12 format=4 uid="uid://52c41ev2sg2v"]
 
 [ext_resource type="Script" uid="uid://ctb74dafkb18y" path="res://Maps/Test_Room/battle_room_init.gd" id="1_sq0ra"]
 [ext_resource type="Texture2D" uid="uid://pkbkf3kj865i" path="res://Maps/Test_Room/Dungeon_Tileset.png" id="2_do4ib"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://deuriqe3wkww1" path="res://Maps/Test_Room/astargrid2d.gd" id="3_sq0ra"]
 [ext_resource type="PackedScene" uid="uid://bg2u3gjyeva80" path="res://Entities/Player/Player.tscn" id="5_qp0pu"]
 [ext_resource type="PackedScene" uid="uid://cuces4d4oq1wd" path="res://Entities/Enemies/Skeleton/Skeleton.tscn" id="6_8px2p"]
+[ext_resource type="PackedScene" uid="uid://eutrcxfc0iy2" path="res://Entities/Enemies/Slime/slime.tscn" id="7_qp0pu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e40mm"]
 texture = ExtResource("2_do4ib")
@@ -246,5 +247,7 @@ script = ExtResource("2_ujtop")
 position = Vector2(119, 7)
 
 [node name="Enemies" type="Node2D" parent="Units"]
+
+[node name="Slime" parent="Units/Enemies" instance=ExtResource("7_qp0pu")]
 
 [node name="Skeleton" parent="Units/Enemies" instance=ExtResource("6_8px2p")]
